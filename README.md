@@ -5,3 +5,8 @@
   * Largest common divisor;
   * Fibonachi numbers;
   * Quadratic equation.
+
+ 
+* Second home work:
+  * OOP;
+  * Exceptions;

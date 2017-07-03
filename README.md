@@ -10,3 +10,9 @@
 * Second home work:
   * OOP;
   * Exceptions;
+
+
+* Third home work Django url:
+  * JsonResponse;
+  * BadRequest;
+  * Redirect;

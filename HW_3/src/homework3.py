@@ -38,9 +38,8 @@ if not settings.configured:
 # Для реализации ответов воспользуйтесь подходящими подклассами HttpResponse.
 
 def get(request):
-    if request.method == 'GET':            
-        response = JsonResponse(request.GET)
-        return response
+    if request.method == 'GET':       
+        return JsonResponse(request.GET)
     else:
         return HttpResponseBadRequest()
 
@@ -64,17 +63,17 @@ def get(request):
 
 def headers(request, **kwargs):
     res = {}
-    res1 = {}
-    for key, val in request.META.items():
-        if 'HTTP_' in key:
-            res[key] = request.META[key]
-    if not kwargs:        
+    
+    if not kwargs: 
+        for key, val in request.META.items():
+            if 'HTTP_' in key:
+                res[key] = request.META[key]       
         response = JsonResponse(res)
     else:
         for key, val in request.META.items():
             if kwargs['name'] in key:
-                res1[key] = request.META[key]
-        response = JsonResponse(res1)
+                res[key] = request.META[key]
+        response = JsonResponse(res)
     return response
 
 

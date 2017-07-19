@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL shortener</title>
+  </head>
+  <body>
+    <!-- Здесь выводите сообщение об ошибке или короткий URL. -->
+    <form action="" method="post">
+      {% csrf_token %}
+        {% if errors %}
+            {{ error|escape }}
+        {% endif %}
+        <input type="text" name="url" placeholder="Long URL-address">
+        <button type="submit" class="btn btn-success">SHORTENER</button>
+      <!-- Добавьте поле для URL и кнопку для отправки формы. -->
+    </form>
+  {% if not valid.errors %}
+    <a href="/{{ short }}">{{ valid }}</a>
+  {% else %}
+    {{ valid.errors }}
+  {% endif %}
+  </body>
+</html>
